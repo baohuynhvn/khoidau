@@ -1,0 +1,179 @@
+﻿body {
+font-family:Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #808080;
+}
+header {
+    display: flex;
+    justify-content: space-between; /* Căn trái phải */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Thêm khoảng cách bên trong header */
+    background-color: #007bff; /* Màu xanh cho nền header */
+    color: white; /* Màu chữ của header */
+}
+.logo img {
+    display: flex;
+    width: 100%;
+    border-radius: 8px;
+    max-height: 24px;
+    object-fit: cover;
+}
+
+.icons {
+    display: flex;
+    font-size: 20px;
+    gap: 20px; 
+}
+.icons span {
+        cursor: pointer; /* Thêm con trỏ khi di chuột vào các mục */
+        transition: color 0.3s ease; /* Thêm hiệu ứng chuyển màu mượt mà */
+}
+  .icons span:hover {
+         color: #0056b3;
+}
+
+
+/*menu*/
+nav {
+    background-color: #0056b3;
+    margin-top: 0; /*Dam bao menu nam sat header*/
+} 
+
+.menu {
+    display: flex; /*Đặt chế độ hiển thị của phần tử .menu là flexbox, giúp các phần tử con (các thẻ <li>) được sắp xếp theo hàng ngang (mặc định của flexbox). Đây là cách hiện đại và dễ dàng để tạo bố cục theo chiều ngang.*/
+    justify-content: center; /*Căn giữa các phần tử con (các thẻ <li>) trong .menu. Điều này đảm bảo các mục menu sẽ được căn giữa trên trang.*/
+    list-style: none; /*Loại bỏ dấu chấm (bullet points) mặc định của các mục trong danh sách (ul/ol), giúp các mục menu trông gọn gàng hơn.*/
+    padding: 0; /*padding: 0; và margin: 0;: Loại bỏ các khoảng cách đệm (padding) và lề (margin) mặc định của phần tử <ul>, giúp đảm bảo không có khoảng cách thừa xung quanh menu.*/
+    margin: 0;
+}
+
+.menu li {
+        position: relative; /*Đặt vị trí của các phần tử <li> là relative, giúp nếu bạn cần sử dụng các thuộc tính như position: absolute cho các phần tử con trong thẻ <li>, chúng sẽ được tham chiếu từ vị trí của <li>.*/
+         }
+.menu a {
+        display: block; /*Biến các liên kết <a> thành phần tử khối (block-level element), giúp chúng chiếm toàn bộ chiều rộng của phần tử cha (mỗi mục menu sẽ chiếm một dòng riêng biệt).*/
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+        /*padding: 10px 20px;: Thêm khoảng cách đệm (padding) bên trong mỗi liên kết, với 10px ở trên và dưới, 20px ở bên trái và phải. Điều này giúp các liên kết trong menu dễ bấm và trông đẹp mắt hơn.
+         color: white;: Đặt màu chữ của các liên kết thành trắng.
+         text-decoration: none;: Loại bỏ gạch chân mặc định của các liên kết, giúp chúng trông sạch sẽ hơn.*/
+         }
+.menu a:hover {
+            background-color: #003f7f; /* Khi người dùng di chuột qua một liên kết trong menu (hiệu ứng hover), màu nền của liên kết sẽ chuyển thành #003f7f (màu xanh đậm). Điều này tạo ra một hiệu ứng tương tác giúp người dùng nhận biết khi họ di chuột qua các mục menu*/
+              }
+/*Menu con*/
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    list-style: none; 
+    padding: 0;
+    left: 0;
+    width: 180px;
+    border: 1px solid#ccc;
+}
+.submenu li {
+    border-bottom: 1px solid #ccc;
+}
+.submenu a {
+    color: black;
+    padding: 10px;
+    display: block
+}
+.submenu a:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .submenu {
+    display: block;
+}
+/*.submenu:
+display: none;: Ban đầu, menu con không được hiển thị (ẩn) bằng cách đặt thuộc tính display thành none. Điều này có nghĩa là menu con chỉ xuất hiện khi có hành động nào đó (chẳng hạn như hover).
+position: absolute;: Vị trí của menu con được đặt là absolute, có nghĩa là nó sẽ được đặt ở một vị trí xác định so với phần tử cha có position khác static (ví dụ: position: relative ở menu cha).
+background-color: white;: Đặt màu nền của menu con là màu trắng.
+list-style: none;: Loại bỏ các dấu chấm (bullet points) mặc định của danh sách trong menu.
+padding: 0;: Loại bỏ khoảng cách đệm mặc định của phần tử danh sách (<ul> hoặc <ol>).
+left: 0;: Đặt vị trí của menu con từ cạnh trái của phần tử chứa (menu cha).
+width: 180px;: Đặt chiều rộng của menu con là 180px.
+border: 1px solid #ccc;: Đặt một đường viền mỏng màu xám (#ccc) cho menu con.
+.submenu li:
+border-bottom: 1px solid #ccc;: Đặt một đường viền dưới các phần tử con trong menu con (chẳng hạn như các mục menu). Tuy nhiên, that có thể là một lỗi đánh máy hoặc tên phần tử không chính xác, vì phần tử này không tồn tại trong HTML chuẩn. Nếu bạn muốn áp dụng cho các mục con của menu con, có thể là .submenu li hoặc .submenu a.
+.submenu a:
+color: black;: Đặt màu chữ của các liên kết trong menu con là đen.
+padding: 10px;: Thêm khoảng cách đệm (padding) cho các liên kết trong menu con, giúp chúng dễ bấm và có giao diện thoải mái hơn.
+display: block;: Đặt các liên kết thành phần tử khối (block-level), giúp chúng chiếm toàn bộ chiều rộng của phần tử cha (thường là các thẻ <li> hoặc <ul>).
+.submenu a:hover:
+background-color: #ddd;: Khi người dùng di chuột qua một liên kết trong menu con, màu nền của liên kết sẽ thay đổi thành màu #ddd (màu xám nhạt), tạo hiệu ứng hover cho các liên kết.
+.dropdown:hover .submenu:
+display: block;: Khi người dùng di chuột qua phần tử có lớp .dropdown (mục menu cha), phần tử con .submenu sẽ được hiển thị bằng cách thay đổi thuộc tính display thành block. Điều này khiến menu con xuất hiện ngay dưới menu cha, tạo thành hiệu ứng dropdown.*/
+.intro{
+    text-align: center;
+    padding: 40px ;
+    background-color: white;
+}
+
+
+/* san pham */
+
+.products, .category {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #0056b3;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px; 
+}
+
+.product {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    width: calc(20% - 20px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    .product:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    }  
+    .product img {
+        width: 100%; 
+        border-radius: 8px;
+        max-height: 200px; 
+        object-fit: cover; 
+    }
+.category:nth-child(odd) {
+    background-color: #e3f2fd;
+}
+.category:nth-child(even) {
+    background-color: #c8e6c9;
+}
+.category:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 20px;
+}
+
+
+
+
